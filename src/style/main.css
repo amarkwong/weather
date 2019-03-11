@@ -273,3 +273,7 @@ button.forecast__switch_1 {
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
   right: 0px;
 }
+
+.humidity {
+  
+}

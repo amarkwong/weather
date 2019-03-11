@@ -19,16 +19,20 @@ export default class WeatherChannel extends Component {
         this.state = {
             curCity:'Brisbane',
             condition: {
-                city:  'Brisbane, Au',
-                temp: '13',
-                weather: 'Clear',
+                city:  '',
+                temp: '',
+                weather: '',
             },
             days:  [
-                {weekday: 'Wed', high:23, low:18, icon:'http://icons.wxug.com/i/c/k/clear.gif'},
-                {weekday: 'Thu', high:29, low:18, icon:'http://icons.wxug.com/i/c/k/chancerain.gif'},
-                {weekday: 'Fri', high:20, low:10, icon:'http://icons.wxug.com/i/c/k/chancerain.gif'}
+                {weekday:'',high:'',low:'',icon:''},
+                {weekday:'',high:'',low:'',icon:''},
+                {weekday:'',high:'',low:'',icon:''},
             ]
         }
+    }
+    componentDidMount()
+    {
+        this.handleSearch();
     }
 
     handleCityChange(event){
@@ -36,6 +40,7 @@ export default class WeatherChannel extends Component {
         this.setState({curCity: value});
     }
     onConditionLoad(data){
+        console.log('condition',data);
         const condition={
             //console.log(data.display_location)
             city:data.location.name,
@@ -43,19 +48,20 @@ export default class WeatherChannel extends Component {
             temp:data.current.temp_c,
             uv:data.current.uv,
             weather: data.current.condition.text,
-            humidity: data.current.condition.humidity,
+            humidity: data.current.humidity,
         }
         this.setState({condition:condition});
     }
     onForecastLoad(data){
+        console.log('forecast',data);
         let foredays=data.forecastday.map(day=>({
             weekday:getDayOfWeek(day.date),
-            highC:day.day.maxtemp_c,
-            high:day.day.maxtemp_c,
-            highF:day.day.maxtemp_f,
-            low:day.day.mintemp_c,
-            lowC:day.day.mintemp_c,
-            lowF:day.day.mintemp_f,
+            highC:day.day.maxtemp_c.toFixed(1),
+            high:day.day.maxtemp_c.toFixed(1),
+            highF:day.day.maxtemp_f.toFixed(1),
+            low:day.day.mintemp_c.toFixed(1),
+            lowC:day.day.mintemp_c.toFixed(1),
+            lowF:day.day.mintemp_f.toFixed(1),
             uv:day.uv,
             icon:day.day.condition.icon
         }));

@@ -5,16 +5,13 @@ function Row(props) {
 	return (
 		<div className="weather-forecast__row">
 			<span className="weather-forecast__day">{newDay.weekday}</span>
-			<span className="weather-forecast__icon">
-				<img src={newDay.icon}/>
-			</span>
+			<span className="weather-forecast__icon"><img src={newDay.icon}/></span>
 			<span className="weather-forecast__high">{newDay.high}</span>
 			<span className="weather-forecast__low">{newDay.low}</span>
 		</div>
 	)
-
-
 }
+
 
 export default class Forecaster extends Component {
 	constructor(props) {
