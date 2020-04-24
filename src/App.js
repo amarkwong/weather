@@ -9,6 +9,7 @@ import CityCondition from './CityCondition';
 import Forecaster from './Forecaster';
 import WeatherChannel from './WeatherChannel';
 
+// const weatherStyle = {backgroundImage:`url('${weather}')`}
 export default class App extends React.Component {
   render() {
     return (

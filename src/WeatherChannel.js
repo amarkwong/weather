@@ -6,11 +6,11 @@ import Forecaster    from './Forecaster';
 
 import {fetchConditionData,fetchForecastData} from './api/weather.js'
 
+
 function getDayOfWeek(date) {
     var dayOfWeek = new Date(date).getDay();
     return isNaN(dayOfWeek) ? null : ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][dayOfWeek];
 }
-
 
 export default class WeatherChannel extends Component {
     constructor(props) {
@@ -40,7 +40,7 @@ export default class WeatherChannel extends Component {
         this.setState({curCity: value});
     }
     onConditionLoad(data){
-        console.log('condition',data);
+        // console.log('condition',data);
         const condition={
             //console.log(data.display_location)
             city:data.location.name,
@@ -53,7 +53,7 @@ export default class WeatherChannel extends Component {
         this.setState({condition:condition});
     }
     onForecastLoad(data){
-        console.log('forecast',data);
+        // console.log('forecast',data);
         let foredays=data.forecastday.map(day=>({
             weekday:getDayOfWeek(day.date),
             highC:day.day.maxtemp_c.toFixed(1),
