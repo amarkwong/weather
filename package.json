@@ -5,7 +5,7 @@
   "private": true,
   "dependencies": {
     "ajv": "^6.5.4",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "gh-pages": "^2.0.1",
     "inspector": "^0.5.0",
     "react": "^16.8.4",
